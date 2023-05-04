@@ -1,14 +1,9 @@
 function LinkedList() {
   // 1. function prepend(value) adds a new node containing value to the start
   // of the list.
-  let head = (value) => {
-    return {
-      value,
-    };
-  };
 
+  let head = {};
   const getHead = () => head;
-  //   let head = {};
   let nextNode = {};
 
   const prepend = (value) => {
@@ -20,7 +15,6 @@ function LinkedList() {
 
   return {
     getHead,
-    // head,
     nextNode,
     prepend,
   };
@@ -29,8 +23,7 @@ function LinkedList() {
 const linkedlist = LinkedList();
 linkedlist.prepend("hello");
 console.log(linkedlist.getHead());
-console.log(linkedlist);
-// console.log(linkedlist.head()); // ohh.
+// console.log(linkedlist.head); // is not changed.
 
 // Node factory
 function Node(value = null, nextNode = null) {
