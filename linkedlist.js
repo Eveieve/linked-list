@@ -1,37 +1,22 @@
-function LinkedList() {
-  // 1. function prepend(value) adds a new node containing value to the start
-  // of the list.
-
-  let head = {};
-  const getHead = () => head;
-  let nextNode = {};
-
-  const prepend = (value) => {
-    // set the head to this new node
-    head = Node(value);
-    // set the head to this new node.
-    // return { head };
-  };
-
-  return {
-    getHead,
-    nextNode,
-    prepend,
-  };
+class LinkedListClass {
+  // list is empty , it's pointing to null
+  constructor(head = null) {
+    this.head = head;
+  }
+  append(data) {
+    // append as the last node
+    this.head = Node(data); // nextNode is null by default = it's the last node.
+  }
 }
-
-const linkedlist = LinkedList();
-linkedlist.prepend("hello");
-console.log(linkedlist.getHead());
-// console.log(linkedlist.head); // is not changed.
+const linkedlistClass = new LinkedListClass();
+linkedlistClass.append("some data");
+console.log("list", linkedlistClass);
 
 // Node factory
-function Node(value = null, nextNode = null) {
-  value = value;
-  nextNode = nextNode;
-  return { value, nextNode };
+// nextNode is null by default unless specified.
+function Node(data, nextNode = null) {
+  // not pointing at anything unless specified.
+  // is an object containing key 'data', and key 'nextNode'
+  return { data, nextNode };
 }
 // node1 object
-const node1 = Node();
-
-console.log(node1);
