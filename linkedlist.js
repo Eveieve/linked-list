@@ -9,12 +9,14 @@ class LinkedListClass {
   }
 
   append(nodeName, data) {
+    // current is the current pointer!!
     let current = this.head; // point to head first
+    // if the pointer is pointing to null
     while (current.nextNode !== null) {
       current = current.nextNode;
     }
     current.nextNode = Node(nodeName, data);
-    console.log(current);
+    // console.log(current);
 
     this.size++;
   }
@@ -29,6 +31,14 @@ class LinkedListClass {
   getHead() {
     return this.head;
   }
+  getTail() {
+    let current = this.head;
+    while (current.nextNode !== null) {
+      current = current.nextNode;
+    }
+
+    return current;
+  }
 }
 const linkedList = new LinkedListClass();
 
@@ -36,8 +46,9 @@ linkedList.prepend(" node", 1);
 linkedList.prepend("node", 0);
 linkedList.prepend("head node", "head");
 linkedList.append("last node", 3);
-// linkedList.append("real last node", 4);
+linkedList.append("real last node", 4);
 console.log(linkedList);
+console.log(linkedList.getTail());
 // console.log("list", linkedList);
 // console.log("getSize", linkedList.getSize());
 // console.log("getSize", linkedList.getHead());
