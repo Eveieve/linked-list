@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// const { check } = require("prettier");
+
 class LinkedListClass {
   // list is empty , it's pointing to null
   // initial linkedlist
@@ -72,6 +74,18 @@ class LinkedListClass {
       }
     }
   }
+
+  findNodeIndex(data) {
+    // returns index
+    // find index of the node containing data
+    let current = this.head;
+    // if this.contains data, find the index with return at(current.index)?
+    if (this.contains(data)) {
+      const foundNodeIndex = this.at(data).index;
+      return foundNodeIndex;
+    } else null;
+  }
+
   toString() {
     let current = this.head;
     while (current.nextNode !== null) {
@@ -87,14 +101,10 @@ linkedList.append(1);
 linkedList.append(2);
 linkedList.append(3);
 console.log(linkedList);
-console.log(linkedList.getTail());
-// console.log("list", linkedList);
-// console.log("getSize", linkedList.getSize());
-// console.log("getSize", linkedList.getHead());
-// console.log(linkedList.pop());
-console.log(linkedList);
-console.log(linkedList.toString());
-console.log(linkedList.at(1));
+// console.log(linkedList.getTail());
+console.log(linkedList.at(1)); // node at index 1
+
+console.log(linkedList.findNodeIndex(1));
 // console.log(linkedList);
 // console.log(linkedList.contains(10));
 // Node factory
