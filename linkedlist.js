@@ -42,7 +42,7 @@ class LinkedListClass {
     return current;
   }
 
-  at(indexToFind) {
+  getNodeAt(indexToFind) {
     // i is index to find
     let current = this.head;
     current.index = 0;
@@ -76,12 +76,8 @@ class LinkedListClass {
   }
 
   findNodeIndex(data) {
-    // returns index
-    // find index of the node containing data
-    let current = this.head;
-    // if this.contains data, find the index with return at(current.index)?
     if (this.contains(data)) {
-      const foundNodeIndex = this.at(data).index;
+      const foundNodeIndex = this.getNodeAt(data).index;
       return foundNodeIndex;
     } else null;
   }
@@ -102,7 +98,6 @@ linkedList.append(2);
 linkedList.append(3);
 console.log(linkedList);
 // console.log(linkedList.getTail());
-console.log(linkedList.at(1)); // node at index 1
 
 console.log(linkedList.findNodeIndex(1));
 // console.log(linkedList);
