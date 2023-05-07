@@ -2,7 +2,7 @@
 
 class LinkedListClass {
   // list is empty , it's pointing to null
-  // initial linkelist
+  // initial linkedlist
   constructor(data = null) {
     this.head = data;
     this.size = 0;
@@ -36,8 +36,17 @@ class LinkedListClass {
     while (current.nextNode !== null) {
       current = current.nextNode;
     }
-
     return current;
+  }
+
+  pop() {
+    let current = this.head;
+
+    while (current.nextNode.nextNode !== null) {
+      current = current.nextNode; // loop until two nodes before null
+    }
+    current.nextNode = null; // have current's next point to null
+    this.size--;
   }
 }
 const linkedList = new LinkedListClass();
@@ -52,7 +61,8 @@ console.log(linkedList.getTail());
 // console.log("list", linkedList);
 // console.log("getSize", linkedList.getSize());
 // console.log("getSize", linkedList.getHead());
-
+console.log(linkedList.pop());
+console.log(linkedList);
 // Node factory
 // nextNode is null by default unless specified.
 function Node(name, data, nextNode = null) {
