@@ -41,12 +41,22 @@ class LinkedListClass {
 
   pop() {
     let current = this.head;
-
     while (current.nextNode.nextNode !== null) {
       current = current.nextNode; // loop until two nodes before null
     }
     current.nextNode = null; // have current's next point to null
     this.size--;
+  }
+  contains(data) {
+    let current = this.head; // in case data is in the head node
+    if (current.data == data) return true;
+    else {
+      while (current.nextNode !== null) {
+        current = current.nextNode;
+        if (current.data == data) return true;
+        else return false;
+      }
+    }
   }
 }
 const linkedList = new LinkedListClass();
@@ -63,6 +73,7 @@ console.log(linkedList.getTail());
 // console.log("getSize", linkedList.getHead());
 console.log(linkedList.pop());
 console.log(linkedList);
+console.log(linkedList.contains(10));
 // Node factory
 // nextNode is null by default unless specified.
 function Node(name, data, nextNode = null) {
