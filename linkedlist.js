@@ -12,6 +12,7 @@ class LinkedListClass {
     // current is the current pointer!!
     let current = this.head; // point to head first
     // if the pointer is pointing to null
+
     while (current.nextNode !== null) {
       current = current.nextNode;
     }
@@ -58,27 +59,34 @@ class LinkedListClass {
       }
     }
   }
+  toString() {
+    let current = this.head;
+    while (current.nextNode !== null) {
+      current = current.nextNode;
+      console.log(current.data.toString()); // print out data as strings
+    }
+  }
 }
 const linkedList = new LinkedListClass();
 
-linkedList.prepend(" node", 1);
-linkedList.prepend("node", 0);
-linkedList.prepend("head node", "head");
-linkedList.append("last node", 3);
-linkedList.append("real last node", 4);
+linkedList.prepend(0);
+linkedList.append(1);
+linkedList.append(2);
+linkedList.append(3);
 console.log(linkedList);
 console.log(linkedList.getTail());
 // console.log("list", linkedList);
 // console.log("getSize", linkedList.getSize());
 // console.log("getSize", linkedList.getHead());
-console.log(linkedList.pop());
+// console.log(linkedList.pop());
 console.log(linkedList);
-console.log(linkedList.contains(10));
+console.log(linkedList.toString());
+// console.log(linkedList.contains(10));
 // Node factory
 // nextNode is null by default unless specified.
-function Node(name, data, nextNode = null) {
+function Node(data, nextNode = null) {
   // not pointing at anything unless specified.
   // is an object containing key 'data', and key 'nextNode'
-  return { name, data, nextNode };
+  return { data, nextNode };
 }
 // node1 object
