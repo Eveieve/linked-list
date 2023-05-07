@@ -40,6 +40,19 @@ class LinkedListClass {
     return current;
   }
 
+  at(indexToFind) {
+    // i is index to find
+    let current = this.head;
+    current.index = 0;
+    let i = 1;
+    if (current.index == indexToFind) return current;
+    while (current.nextNode !== null) {
+      current = current.nextNode;
+      current.index = i++; // set index, increment by one, for each iteration
+      if (current.index == indexToFind) return current;
+    }
+  }
+
   pop() {
     let current = this.head;
     while (current.nextNode.nextNode !== null) {
@@ -81,6 +94,8 @@ console.log(linkedList.getTail());
 // console.log(linkedList.pop());
 console.log(linkedList);
 console.log(linkedList.toString());
+console.log(linkedList.at(1));
+// console.log(linkedList);
 // console.log(linkedList.contains(10));
 // Node factory
 // nextNode is null by default unless specified.
