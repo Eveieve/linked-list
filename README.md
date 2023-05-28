@@ -1,7 +1,6 @@
 # linked-list
 This assignment is from the Odin Project's full stack javaScript curriculum. See [here](https://www.theodinproject.com/lessons/javascript-linked-lists#assignment)for the assignment specs. 
 
----
 ## technologies 
 Vanilla javasScript
 
