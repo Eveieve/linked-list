@@ -105,22 +105,15 @@ class LinkedList {
     }
   }
   insertAt(data, index) {
-    // insert this node with this data at this index
-
-    // loop through
-    // if locates a node with this index
-    // have the current.nextNode = point to this new Node(data)
-    // new Node is pointing at the previous node now
-    let i = 0;
     let current = this.head;
+    let i = 0;
+    if (i === index) this.head = Node(data, current.nextNode);
     while (current.nextNode !== null) {
-      current.index = i++;
-      if (current.index === index) {
-        current.nextNode = Node(data, current.nextNode);
-      }
-      current = current.nextNode; // else keep going
+      i++;
+      // i is the index of the current.nextNode already
+      if (i === index) current.nextNode = Node(data, current.nextNode);
+      current = current.nextNode;
     }
-    return null;
   }
 }
 const linkedList = new LinkedList();
@@ -129,17 +122,12 @@ linkedList.prepend(100);
 linkedList.append(200);
 linkedList.append(300);
 linkedList.append(400);
-console.log(linkedList);
-console.log(linkedList.getNodeAt(3));
-console.log(linkedList.toString());
-console.log(linkedList.contains(200));
-console.log(linkedList);
-console.log(linkedList);
+
 // linkedList.insertAt(900, 6); // index not found, longer than list
 console.log(linkedList);
 // console.log(linkedList.getNodeAt(2));
 console.log(linkedList.getNodeAt(3));
 console.log(linkedList.getNodeAt(2));
 console.log(linkedList.getNodeAt(7));
-
+linkedList.insertAt(900, 3); // need for null nodes in between?
 console.log(linkedList);
