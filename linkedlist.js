@@ -74,6 +74,7 @@ class LinkedList {
     current.nextNode = null; // have current's next point to null
     this.size--;
   }
+
   contains(data) {
     let current = this.head; // in case data is in the head node
     if (current.data == data) return true;
@@ -81,12 +82,12 @@ class LinkedList {
       while (current.nextNode !== null) {
         current = current.nextNode;
         if (current.data == data) return true;
-        else return false;
       }
+      return false;
     }
   }
 
-  // finds index of the node containing this data
+  // returns index of the node containing this data
   findNodeIndex(data) {
     // if ll contains(data)..
     // loop through to look for data and return current.index
@@ -95,7 +96,7 @@ class LinkedList {
 
       while (current.nextNode !== null) {
         if (current.data === data) return current.index;
-        else current = current.nextNode; // keep looping through
+        current = current.nextNode; // keep looping through
       }
     } else return null; // data doesn't exist in linked list
   }
@@ -108,14 +109,19 @@ class LinkedList {
       console.log(current.data.toString()); // print out data as strings
     }
   }
-  insertAt(data, index) {
-    // insert this node with this data at this index
-    let current = this.head;
-    while (current.nextNode !== null) {
-      current = current.nextNode;
-    }
-    this.getNodeAt(index);
-  }
+  // insertAt(data, index) {
+  //   // insert this node with this data at this index
+
+  //   // loop through..
+  //   // if locates a node with this index
+  //   // have the current.nextNode = point to this new Node(data)
+  //   // new Node is pointing at the previous node now..
+  //   let current = this.head;
+  //   while (current.nextNode !== null) {
+  //     if (current.index === index) current.nextNode = Node(data);
+  //     else current = current.nextNode; // else keep going
+  //   }
+  // }
 }
 const linkedList = new LinkedList();
 
@@ -127,5 +133,6 @@ console.log(linkedList);
 console.log(linkedList.getNodeAt(3)); // find node, third place
 console.log(linkedList.toString());
 console.log(linkedList.contains(200));
+console.log(linkedList);
 
-console.log(linkedList.findNodeIndex(200));
+console.log(linkedList.findNodeIndex(300));
