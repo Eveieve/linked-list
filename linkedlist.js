@@ -49,20 +49,15 @@ class LinkedList {
     return current;
   }
 
-  // last node doesn't have an 'index' property..
   getNodeAt(indexToFind) {
     // i is the index to find
     let current = this.head;
-    current.index = 0;
-
-    if (current.index === indexToFind) return current;
     let i = 0;
     while (current.nextNode !== null) {
-      current.index = i++; // set index, increment by one, for each iteration
-      if (current.index === indexToFind) return current;
+      if (i === indexToFind) return current;
+      i++;
       current = current.nextNode;
     }
-
     return current;
   }
 
@@ -139,11 +134,12 @@ console.log(linkedList.getNodeAt(3));
 console.log(linkedList.toString());
 console.log(linkedList.contains(200));
 console.log(linkedList);
-
-console.log(linkedList.findNodeIndex(300));
-// what if 'index' is larger than the list?
-linkedList.insertAt(600, 1); // inserted at index 3 ...
 console.log(linkedList);
-
+// linkedList.insertAt(900, 6); // index not found, longer than list
+console.log(linkedList);
+// console.log(linkedList.getNodeAt(2));
 console.log(linkedList.getNodeAt(3));
+console.log(linkedList.getNodeAt(2));
+console.log(linkedList.getNodeAt(7));
+
 console.log(linkedList);
