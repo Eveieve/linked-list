@@ -110,9 +110,22 @@ class LinkedList {
     if (i === index) this.head = Node(data, current.nextNode);
     while (current.nextNode !== null) {
       i++;
-      // i is the index of the current.nextNode already
+      // i is the position of the current.nextNode already
       if (i === index) current.nextNode = Node(data, current.nextNode);
       current = current.nextNode;
+    }
+  }
+  removeAt(index) {
+    let current = this.head;
+    let i = 0;
+    // if index is 0, have the pointer to point to head's next
+    if (i === index) current = current.nextNode;
+    while (current.nextNode !== null) {
+      i++; // increment count , position ++
+      // if the incremented position is equal to index
+      // pointer is still at i though.
+      if (i === index) current.nextNode = current.nextNode.nextNode;
+      current = current.nextNode; // keep moving
     }
   }
 }
@@ -124,10 +137,10 @@ linkedList.append(300);
 linkedList.append(400);
 
 // linkedList.insertAt(900, 6); // index not found, longer than list
-console.log(linkedList);
+// console.log(linkedList);
 // console.log(linkedList.getNodeAt(2));
-console.log(linkedList.getNodeAt(3));
-console.log(linkedList.getNodeAt(2));
-console.log(linkedList.getNodeAt(7));
-linkedList.insertAt(900, 3); // need for null nodes in between?
+
+// linkedList.insertAt(900, 0); // need for null nodes in between?
+console.log(linkedList);
+linkedList.removeAt(1);
 console.log(linkedList);
