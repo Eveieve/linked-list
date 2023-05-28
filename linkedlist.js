@@ -109,19 +109,24 @@ class LinkedList {
       console.log(current.data.toString()); // print out data as strings
     }
   }
-  // insertAt(data, index) {
-  //   // insert this node with this data at this index
+  insertAt(data, index) {
+    // insert this node with this data at this index
 
-  //   // loop through..
-  //   // if locates a node with this index
-  //   // have the current.nextNode = point to this new Node(data)
-  //   // new Node is pointing at the previous node now..
-  //   let current = this.head;
-  //   while (current.nextNode !== null) {
-  //     if (current.index === index) current.nextNode = Node(data);
-  //     else current = current.nextNode; // else keep going
-  //   }
-  // }
+    // loop through
+    // if locates a node with this index
+    // have the current.nextNode = point to this new Node(data)
+    // new Node is pointing at the previous node now
+    let i = 0;
+    let current = this.head;
+    while (current.nextNode !== null) {
+      current.index = i++;
+      if (current.index === index) {
+        current.nextNode = Node(data, current.nextNode);
+      }
+      current = current.nextNode; // else keep going
+    }
+    return null;
+  }
 }
 const linkedList = new LinkedList();
 
@@ -130,9 +135,15 @@ linkedList.append(200);
 linkedList.append(300);
 linkedList.append(400);
 console.log(linkedList);
-console.log(linkedList.getNodeAt(3)); // find node, third place
+console.log(linkedList.getNodeAt(3));
 console.log(linkedList.toString());
 console.log(linkedList.contains(200));
 console.log(linkedList);
 
 console.log(linkedList.findNodeIndex(300));
+// what if 'index' is larger than the list?
+linkedList.insertAt(600, 1); // inserted at index 3 ...
+console.log(linkedList);
+
+console.log(linkedList.getNodeAt(3));
+console.log(linkedList);
