@@ -86,19 +86,35 @@ class LinkedList {
     }
   }
 
+  // finds index of the node containing this data
   findNodeIndex(data) {
+    // if ll contains(data)..
+    // loop through to look for data and return current.index
     if (this.contains(data)) {
-      const foundNodeIndex = this.getNodeAt(data).index;
-      return foundNodeIndex;
-    } else null;
+      let current = this.head;
+
+      while (current.nextNode !== null) {
+        if (current.data === data) return current.index;
+        else current = current.nextNode; // keep looping through
+      }
+    } else return null; // data doesn't exist in linked list
   }
 
   toString() {
     let current = this.head;
+    console.log(current.data.toString());
     while (current.nextNode !== null) {
       current = current.nextNode;
       console.log(current.data.toString()); // print out data as strings
     }
+  }
+  insertAt(data, index) {
+    // insert this node with this data at this index
+    let current = this.head;
+    while (current.nextNode !== null) {
+      current = current.nextNode;
+    }
+    this.getNodeAt(index);
   }
 }
 const linkedList = new LinkedList();
@@ -109,3 +125,7 @@ linkedList.append(300);
 linkedList.append(400);
 console.log(linkedList);
 console.log(linkedList.getNodeAt(3)); // find node, third place
+console.log(linkedList.toString());
+console.log(linkedList.contains(200));
+
+console.log(linkedList.findNodeIndex(200));
